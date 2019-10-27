@@ -3,7 +3,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import 'bulma/css/bulma.css'
 import parques from '../parques';
 
-export default class Mapa extends Component{
+export default class MapaPlanta extends Component{
 //Basicamente este estado sirve para indicarle en que posicion va a empezar el mapa en este caso Mty.
   state = {
     viewport: {
@@ -27,14 +27,17 @@ export default class Mapa extends Component{
           onViewportChange={(viewport) => this.setState({viewport})}
           mapboxApiAccessToken="pk.eyJ1IjoidmFsZG90ZSIsImEiOiJjazFsMzZjejkwMWhiM2JuemgybzR0ZzhyIn0.-XBXaq384sEUIV7H7W3dtg">
             {parques.map(parque => (
+              parque.status ?
               <Marker key={parque.id} latitude={parque.latitude} longitude={parque.longitude}>
                 <button className="marker-btn" onClick={e => {
                   e.preventDefault(); //Quita lo que haga por default al hacerle click.
                   this.setState({selectedTree: parque})
                 }}>
-                  <img src="/tree.svg" alt="Icono Planta"/>
+                  <img className="icono" src="./img/shovel.svg" alt="Icono Pala"/>
                 </button>
               </Marker>
+              :
+              <div></div>
             ))}
             {this.state.selectedTree ? (
             <Popup 

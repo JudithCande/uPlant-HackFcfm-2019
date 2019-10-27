@@ -3,18 +3,21 @@
         "id": 0,
         "nombre": "Fundidora",
         "longitude": -100.28260165969418,
-        "latitude": 25.67839792770713
+        "latitude": 25.67839792770713,
+        "status":false
     },
     {
         "id": 1,
         "nombre": "Niños Heroes",
         "longitude": -100.31343557462179,
-        "latitude": 25.714016455138882
+        "latitude": 25.714016455138882,
+        "status":true
     },
     {
         "id": 2,
         "nombre": "Club Campestre",
         "longitude": -100.34609499851433,
-        "latitude": 25.646453089584867
+        "latitude": 25.646453089584867,
+        "status":true
     }
 ]
