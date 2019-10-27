@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import 'bulma/css/bulma.css'
 import parques from '../parques';
+import Geocoder from 'react-map-gl-geocoder';
 
 export default class MapaPlanta extends Component{
 //Basicamente este estado sirve para indicarle en que posicion va a empezar el mapa en este caso Mty.
@@ -16,14 +17,16 @@ export default class MapaPlanta extends Component{
     selectedTree: null
   }
 
-
+  mapRef = React.createRef();
   render(){
     return (
       <div>
         {/* Pasamos nuestra informacion ...this.state.viewport
             Cada que detecte un cambio (zoom, mover y de más) mandará
             un arreglo con la nueva informacion viewport*/}
-        <ReactMapGL {...this.state.viewport} 
+        <ReactMapGL
+          ref={this.mapRef} 
+          {...this.state.viewport} 
           onViewportChange={(viewport) => this.setState({viewport})}
           mapboxApiAccessToken="pk.eyJ1IjoidmFsZG90ZSIsImEiOiJjazFsMzZjejkwMWhiM2JuemgybzR0ZzhyIn0.-XBXaq384sEUIV7H7W3dtg">
             {parques.map(parque => (
@@ -39,6 +42,12 @@ export default class MapaPlanta extends Component{
               :
               <div></div>
             ))}
+            <Geocoder
+               mapboxApiAccessToken="pk.eyJ1IjoidmFsZG90ZSIsImEiOiJjazFsMzZjejkwMWhiM2JuemgybzR0ZzhyIn0.-XBXaq384sEUIV7H7W3dtg"
+                   onViewportChange={(viewport) =>this.setState({viewport})}
+                    mapRef={this.mapRef}
+                    position="top-left"
+                  ></Geocoder>
             {(this.state.selectedTree)? (
             <Popup 
               longitude={this.state.selectedTree.longitude}

@@ -11,7 +11,6 @@ export default class PlaceRegister extends Component {
     telNumber:'',
     email: '',
     description:'',
-    props: this.props
   };
   
   onSubmit = (e) => {
@@ -23,9 +22,7 @@ export default class PlaceRegister extends Component {
     email: this.state.email,
     description: this.state.description
   } 
-  this.props.props.setState({
-    clicked:false
-  })
+  
   console.log(this.props.props.clicked)
 
   };

@@ -9,8 +9,8 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 export default class MapaDonar extends Component{
     state = {
         viewport: {
-          width: 500,
-          height: 500,
+          width: "100vw",
+          height: "100vh",
           latitude: 25.6397836,
           longitude: -100.2931016,
           zoom: 10
@@ -44,11 +44,10 @@ export default class MapaDonar extends Component{
         };
         
         onInputChange = e =>{
+
           this.setState({
-              
-            [e.target.name]: e.target.value
+            form: { ...this.state.form, [e.target.name]: e.target.value }
           })
-          console.log(e.target.name);
         }
         
 
@@ -111,7 +110,7 @@ export default class MapaDonar extends Component{
                     <div className="modal-background"></div>
                     <div className="modal-card">
                       <header className="modal-card-head">
-                        <p className="modal-card-title">Registro</p>
+                        <p className="modal-card-title">Donar Terreno</p>
                         <button onClick={() => this.setState({clicked:false})} className="delete" aria-label="close"></button>
                       </header>
                       <section className="modal-card-body">
@@ -125,7 +124,7 @@ export default class MapaDonar extends Component{
                                     <div className="control">
                                     <input className="input" 
                                     type="text" 
-                                    name="form.placeName"
+                                    name="placeName"
                                     placeholder="Nombre del lugar"
                                     onChange={this.onInputChange}
                                         value={this.state.form.placeName}

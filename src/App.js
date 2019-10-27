@@ -10,6 +10,7 @@ import Inicio from './component/Inicio';
 import MapaPlanta from './component/MapaPlanta';
 import MapaDonar from './component/MapaDonar';
 import Cuenta from './component/Cuenta';
+import Nosotros from './component/Nosotros';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path="/mapaPlanta" exact component={MapaPlanta} />
         <Route exact path="/cuenta"><Cuenta user="marco123"/></Route>
         <Route path="/mapaDonar" exact component={MapaDonar}/>
-        <Route/>
+        <Route path="/nosotros" exact component={Nosotros}/>
       </div>
     </Router>
   );
