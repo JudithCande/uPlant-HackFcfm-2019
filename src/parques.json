@@ -4,20 +4,38 @@
         "nombre": "Fundidora",
         "longitude": -100.28260165969418,
         "latitude": 25.67839792770713,
-        "status":false
+        "status":true,
+        "user":"marco",
+        "titular":"Marco Antonio",
+        "descripcion":"erfwsdfgsfdgkjdf dsfg sdfg sdfg sdf gsd  er get",
+        "correo":"marco.vzz@outlook.com",
+        "telefono":8121257169,
+        "padrino":""
     },
     {
         "id": 1,
         "nombre": "Niños Heroes",
         "longitude": -100.31343557462179,
         "latitude": 25.714016455138882,
-        "status":true
+        "status":true,
+        "user":"marco123",
+        "titular":"Marco Antonio",
+        "descripcion":"erfwsdfgsfdgkjdf dsfg sdfg sdfg sdf gsd  er get",
+        "correo":"marco.vzz@outlook.com",
+        "telefono":8121257169,
+        "padrino":""
     },
     {
         "id": 2,
         "nombre": "Club Campestre",
         "longitude": -100.34609499851433,
         "latitude": 25.646453089584867,
-        "status":true
+        "status":true,
+        "user":"marco123",
+        "titular":"Marco Antonio",
+        "descripcion":"erfwsdfgsfdgkjdf dsfg sdfg sdfg sdf gsd  er get",
+        "correo":"marco.vzz@outlook.com",
+        "telefono":8121257169,
+        "padrino":""
     }
 ]

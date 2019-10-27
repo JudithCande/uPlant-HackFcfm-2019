@@ -27,7 +27,7 @@ export default class MapaPlanta extends Component{
           onViewportChange={(viewport) => this.setState({viewport})}
           mapboxApiAccessToken="pk.eyJ1IjoidmFsZG90ZSIsImEiOiJjazFsMzZjejkwMWhiM2JuemgybzR0ZzhyIn0.-XBXaq384sEUIV7H7W3dtg">
             {parques.map(parque => (
-              parque.status ?
+              (parque.user===this.props.user) ?
               <Marker key={parque.id} latitude={parque.latitude} longitude={parque.longitude}>
                 <button className="marker-btn" onClick={e => {
                   e.preventDefault(); //Quita lo que haga por default al hacerle click.
@@ -53,11 +53,10 @@ export default class MapaPlanta extends Component{
                 <br></br>
                 Titular: {this.state.selectedTree.titular}
                 <br></br>
-                Descripción: {this.state.selectedTree.descripcion}
-                <br></br>
-                Correo: {this.state.selectedTree.correo}
-                <br></br>
-                Teléfono: {this.state.selectedTree.telefono}
+                <label>
+                    <input type="checkbox"  onClick={!this.state.selectedTree.status}></input>
+                    Disponible
+                </label>
               </div>
 
             </Popup>
