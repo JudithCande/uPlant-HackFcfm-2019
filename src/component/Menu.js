@@ -32,7 +32,7 @@ export default class Menu extends Component{
                                 >
                                     Plantar
                                 </Link>
-                                <Link to='/donar' className="navbar-item" 
+                                <Link to='/mapaDonar' className="navbar-item" 
                                     style={{marginLeft:'50px',
                                             color: '#535353',
                                             fontWeight: "bold",
