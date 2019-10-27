@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import 'bulma/css/bulma.css'
 import parques from '../parques';
 
 export default class Mapa extends Component{
@@ -11,7 +12,8 @@ export default class Mapa extends Component{
       latitude: 25.6397836,
       longitude: -100.2931016,
       zoom: 10
-    }
+    },
+    selectedTree: null
   }
 
 
@@ -28,11 +30,27 @@ export default class Mapa extends Component{
               <Marker key={parque.id} latitude={parque.latitude} longitude={parque.longitude}>
                 <button className="marker-btn" onClick={e => {
                   e.preventDefault(); //Quita lo que haga por default al hacerle click.
+                  this.setState({selectedTree: parque})
                 }}>
                   <img src="/tree.svg" alt="Icono Planta"/>
                 </button>
               </Marker>
             ))}
+            {this.state.selectedTree ? (
+            <Popup 
+              longitude={this.state.selectedTree.longitude}
+              latitude={this.state.selectedTree.latitude}
+              onClose={() => {
+                this.setState({selectedTree:null})
+              }}
+              
+             >
+              <div>
+                {this.state.selectedTree.nombre}
+              </div>
+
+            </Popup>
+              ) :null}
         </ReactMapGL>
         
       </div>
